@@ -1,0 +1,60 @@
+{
+  "name": "webpack-blocks-more",
+  "version": "0.0.0",
+  "description": "A set of well-thought 📦webpack-blocks for real-world projects",
+  "author": "Vlad Zhukov (http://github.com/Vlad-Zhukov)",
+  "license": "MIT",
+  "repository": "Vlad-Zhukov/webpack-blocks-more",
+  "bugs": {
+    "url": "https://github.com/Vlad-Zhukov/webpack-blocks-more/issues"
+  },
+  "main": "./dist/webpack-blocks-more.cjs.js",
+  "module": "./dist/webpack-blocks-more.esm.js",
+  "scripts": {
+    "build": "rimraf dist/ && cross-env NODE_ENV=production rollup -c",
+    "test": "jest",
+    "lint": "eslint \"**/*.js\"",
+    "prettier": "prettier-eslint \"**/*.js\" --write",
+    "prepublishOnly": "yarn run lint && yarn run build && yarn run test"
+  },
+  "dependencies": {
+    "babel-loader": "^7.1.2"
+  },
+  "devDependencies": {
+    "@webpack-blocks/webpack": "^1.0.0-beta.3",
+    "babel-eslint": "^7.2.3",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "cross-env": "^5.0.5",
+    "eslint": "^4.6.1",
+    "eslint-config-airbnb-base": "^12.0.0",
+    "eslint-plugin-import": "^2.7.0",
+    "jest": "^20.0.4",
+    "prettier-eslint-cli": "^4.3.0",
+    "rimraf": "^2.6.1",
+    "rollup": "^0.48.2",
+    "rollup-plugin-babel": "^3.0.2",
+    "webpack": "^3.5.5"
+  },
+  "peerDependencies": {
+    "@webpack-blocks/webpack": "^1.0.0-beta",
+    "webpack": "^3.0.0"
+  },
+  "keywords": [
+    "webpack-blocks",
+    "webpack",
+    "webpack-dev-server",
+    "react-hot-loader",
+    "babel"
+  ],
+  "files": [
+    "src",
+    "dist"
+  ],
+  "jest": {
+    "roots": [
+      "<rootDir>/__tests__/"
+    ]
+  }
+}
