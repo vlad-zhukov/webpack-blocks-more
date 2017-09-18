@@ -15,7 +15,7 @@
     "test": "jest",
     "lint": "eslint \"**/*.js\"",
     "prettier": "prettier-eslint \"**/*.js\" --write",
-    "prepublishOnly": "yarn run lint && yarn run build && yarn run test"
+    "prepublishOnly": "yarn build && yarn lint && yarn test"
   },
   "dependencies": {
     "babel-loader": "^7.1.2"
