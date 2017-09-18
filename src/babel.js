@@ -1,7 +1,7 @@
 /*
  * Babel loader.
  */
-export default function babelLoader(options = {}) {
+export default function babel(options = {}) {
     return (context, {addLoader}) =>
         addLoader({
             ...context.match,

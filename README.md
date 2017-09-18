@@ -10,7 +10,7 @@ Designed to be used with `webpack@3+` and `webpack-blocks@1+`.
   - [`setEnv([options])`](#setenvoptions)
   - [`watch([options])`](#watchoptions)
   - [`parser([options])`](#parseroptions)
-  - [`babelLoader([options])`](#babelloaderoptions)
+  - [`babel([options])`](#babeloptions)
   - [`stylus([options])`](#stylusoptions)
 
 ## API
@@ -52,7 +52,7 @@ __Arguments__
 
 ---
 
-### `babelLoader([options])`
+### `babel([options])`
 
 Built on top of [`babel-loader`](https://github.com/babel/babel-loader).
 
@@ -68,7 +68,7 @@ const {babelLoader} = require('webpack-blocks-more');
 
 module.exports = createConfig([
   match('*.js', {exclude: /node_modules/}, [
-    babelLoader({
+    babel({
       cacheDirectory: true,
     }),
   ]),
