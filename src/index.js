@@ -3,3 +3,4 @@ export {default as watch} from './watch';
 export {default as parser} from './parser';
 
 export {default as babelLoader} from './babelLoader';
+export {default as stylus} from './stylus';

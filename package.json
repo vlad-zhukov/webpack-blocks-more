@@ -1,7 +1,7 @@
 {
   "name": "webpack-blocks-more",
   "version": "0.0.1",
-  "description": "A set of well-thought 📦webpack-blocks for real-world projects",
+  "description": "Just a few blocks that 📦webpack-blocks is missing",
   "author": "Vlad Zhukov (http://github.com/Vlad-Zhukov)",
   "license": "MIT",
   "repository": "Vlad-Zhukov/webpack-blocks-more",
@@ -18,7 +18,11 @@
     "prepublishOnly": "yarn build && yarn lint && yarn test"
   },
   "dependencies": {
-    "babel-loader": "^7.1.2"
+    "babel-loader": "^7.1.2",
+    "css-loader": "^0.28.7",
+    "extract-loader": "^1.0.1",
+    "file-loader": "^0.11.2",
+    "stylus-loader": "^3.0.1"
   },
   "devDependencies": {
     "@webpack-blocks/webpack": "^1.0.0-beta.3",

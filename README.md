@@ -1,6 +1,6 @@
 # webpack-blocks-more · [![npm](https://img.shields.io/npm/v/webpack-blocks-more.svg)](https://npm.im/webpack-blocks-more)
 
-> A set of well-thought 📦[webpack-blocks](https://github.com/andywer/webpack-blocks) for real-world projects.
+> Just a few blocks that 📦[webpack-blocks](https://github.com/andywer/webpack-blocks) is missing.
 
 Designed to be used with `webpack@3+` and `webpack-blocks@1+`.
 
@@ -9,25 +9,26 @@ Designed to be used with `webpack@3+` and `webpack-blocks@1+`.
 - [API](#api)
   - [`setEnv([options])`](#setenvoptions)
   - [`watch([options])`](#watchoptions)
-  - [`reactHotServer([options])`](#reacthotserveroptions)
+  - [`parser([options])`](#parseroptions)
   - [`babelLoader([options])`](#babelloaderoptions)
+  - [`stylus([options])`](#stylusoptions)
 
 ## API
 
 ### `setEnv([options])`
 
-Sets environmental variables to `process.env` and [EnvironmentPlugin](https://webpack.js.org/plugins/environment-plugin/).
+Sets environmental variables to `process.env` and [`EnvironmentPlugin`](https://webpack.js.org/plugins/environment-plugin/).
 
 __Arguments__
 
-- `[options]` _(Array|Object)_: Any enumerable properties.
+1. `[options]` _(Array|Object)_: Any enumerable properties.
 
 __Example__
 
 ```js
 setEnv({
-    NODE_ENV: 'development',
-    HOT: true,
+  NODE_ENV: 'development',
+  HOT: true,
 })
 ```
 
@@ -38,17 +39,26 @@ Watch mode.
 
 __Arguments__
 
-- `[options]` _(Object)_: See [watchOptions](https://webpack.js.org/configuration/watch/#watchoptions) for available properties.
+1. `[options]` _(Object)_: See [`watchOptions`](https://webpack.js.org/configuration/watch/#watchoptions) for available properties.
+
+---
+
+### `parser([options])`
+Parser options.
+
+__Arguments__
+
+- `[options]` _(Boolean|Object)_: See [`Rule.parser`](https://webpack.js.org/configuration/module/#rule-parser)
 
 ---
 
 ### `babelLoader([options])`
 
-Built on top of [babel-loader](https://github.com/babel/babel-loader).
+Built on top of [`babel-loader`](https://github.com/babel/babel-loader).
 
 __Arguments__
 
-- `[options]` _(Object)_: `babel-loader` options.
+1. `[options]` _(Object)_: `babel-loader` options.
 
 __Example__
 
@@ -57,11 +67,48 @@ const {createConfig, match} = require('@webpack-blocks/webpack');
 const {babelLoader} = require('webpack-blocks-more');
 
 module.exports = createConfig([
-    match('*.js', {exclude: /node_modules/}, [
-        babelLoader({
-            cacheDirectory: true,
-        }),
-    ]),
+  match('*.js', {exclude: /node_modules/}, [
+    babelLoader({
+      cacheDirectory: true,
+    }),
+  ]),
+]);
+```
+
+---
+
+### `stylus([options])`
+
+Built on top of [`stylus-loader`](https://github.com/shama/stylus-loader),
+[`css-loader`](https://github.com/webpack-contrib/css-loader),
+[`file-loader`](https://github.com/webpack-contrib/file-loader)
+and [`extract-loader`](https://github.com/peerigon/extract-loader).
+
+__Arguments__
+
+1. `[options]` _(Object)_:
+  - `[fileOptions]` _(Object)_: `file-loader` options.
+  - `[extractOptions]` _(Object): `extract-loader` options.
+  - `[cssOptions]` _(Object)_: `css-loader` options.
+  - `[stylusOptions]` _(Object)_: `stylus-loader` options.
+
+__Example__
+
+```js
+const {createConfig, match} = require('@webpack-blocks/webpack');
+const {stylus} = require('webpack-blocks-more');
+
+module.exports = createConfig([
+  match(['*.styl', '*.stylus'], [
+    stylus({
+      fileOptions: {
+        name: 'bundle.css',
+      },
+      stylusOptions: {
+        preferPathResolver: 'webpack',
+      },
+    }),
+  ]),
 ]);
 ```
 
