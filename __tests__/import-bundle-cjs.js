@@ -1,5 +1,5 @@
 const {
-    setEnv, watch, parser, babel, stylus,
+    setEnv, watch, parser, babel, stylus, stylusDev,
 } = require('../dist/webpack-blocks-more.cjs');
 
 test('import-bundle-cjs', () => {
@@ -9,4 +9,5 @@ test('import-bundle-cjs', () => {
 
     expect(typeof babel).toBe('function');
     expect(typeof stylus).toBe('function');
+    expect(typeof stylusDev).toBe('function');
 });

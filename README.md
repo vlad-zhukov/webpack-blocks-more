@@ -12,6 +12,7 @@ Designed to be used with `webpack@3+` and `webpack-blocks@1+`.
   - [`parser([options])`](#parseroptions)
   - [`babel([options])`](#babeloptions)
   - [`stylus([options])`](#stylusoptions)
+  - [`stylusDev([options])`](#stylusdevoptions)
 
 ## API
 
@@ -111,5 +112,20 @@ module.exports = createConfig([
   ]),
 ]);
 ```
+
+---
+
+### `stylusDev([options])`
+
+Similar to `stylus` block, but uses [`stylus-loader`](https://github.com/shama/stylus-loader),
+[`css-loader`](https://github.com/webpack-contrib/css-loader) and
+[`style-loader`](https://github.com/webpack-contrib/style-loader).
+
+__Arguments__
+
+1. `[options]` _(Object)_:
+  - `[styleOptions]` _(Object)_: `style-loader` options.
+  - `[cssOptions]` _(Object)_: `css-loader` options.
+  - `[stylusOptions]` _(Object)_: `stylus-loader` options.
 
 ---

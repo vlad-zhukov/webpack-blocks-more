@@ -1,4 +1,4 @@
-import {setEnv, watch, parser, babel, stylus} from '../dist/webpack-blocks-more.cjs';
+import {setEnv, watch, parser, babel, stylus, stylusDev} from '../dist/webpack-blocks-more.cjs';
 
 test('import-bundle-esm', () => {
     expect(typeof setEnv).toBe('function');
@@ -7,4 +7,5 @@ test('import-bundle-esm', () => {
 
     expect(typeof babel).toBe('function');
     expect(typeof stylus).toBe('function');
+    expect(typeof stylusDev).toBe('function');
 });
