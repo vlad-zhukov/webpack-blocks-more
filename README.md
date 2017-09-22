@@ -11,6 +11,7 @@ Designed to be used with `webpack@3+` and `webpack-blocks@1+`.
   - [`watch([options])`](#watchoptions)
   - [`parser([options])`](#parseroptions)
   - [`babel([options])`](#babeloptions)
+  - [`image([options])`](#imageoptions)
   - [`stylus([options])`](#stylusoptions)
   - [`stylusDev([options])`](#stylusdevoptions)
 
@@ -49,7 +50,26 @@ Parser options.
 
 __Arguments__
 
-- `[options]` _(Boolean|Object)_: See [`Rule.parser`](https://webpack.js.org/configuration/module/#rule-parser)
+1. `[options]` _(Boolean|Object)_: See [`Rule.parser`](https://webpack.js.org/configuration/module/#rule-parser)
+
+__Example__
+
+```js
+const {createConfig} = require('@webpack-blocks/webpack');
+const {parser} = require('webpack-blocks-more');
+
+module.exports = createConfig([
+  parser({
+    amd: false,
+    browserify: false,
+    requireJs: false,
+    system: false,
+    requireInclude: false,
+    requireEnsure: false,
+  }),
+]);
+```
+
 
 ---
 
@@ -78,18 +98,39 @@ module.exports = createConfig([
 
 ---
 
+### `image([options])`
+
+__Arguments__
+
+1. `[options]` _(Object)_: [`image-webpack-loader`](https://github.com/tcoopman/image-webpack-loader) options.
+
+__Example__
+
+```js
+const {createConfig, match} = require('@webpack-blocks/webpack');
+const {file} = require('@webpack-blocks/assets');
+const {image} = require('webpack-blocks-more');
+
+module.exports = createConfig([
+  match(['*.jpg', '*.png'], [
+    file(),
+    image(),
+  ]),
+]);
+```
+
+---
+
 ### `stylus([options])`
 
 Built on top of [`stylus-loader`](https://github.com/shama/stylus-loader),
-[`css-loader`](https://github.com/webpack-contrib/css-loader),
-[`file-loader`](https://github.com/webpack-contrib/file-loader)
+[`css-loader`](https://github.com/webpack-contrib/css-loader)
 and [`extract-loader`](https://github.com/peerigon/extract-loader).
 
 __Arguments__
 
 1. `[options]` _(Object)_:
-  - `[fileOptions]` _(Object)_: `file-loader` options.
-  - `[extractOptions]` _(Object): `extract-loader` options.
+  - `[extractOptions]` _(Object)_: `extract-loader` options.
   - `[cssOptions]` _(Object)_: `css-loader` options.
   - `[stylusOptions]` _(Object)_: `stylus-loader` options.
 
@@ -97,16 +138,17 @@ __Example__
 
 ```js
 const {createConfig, match} = require('@webpack-blocks/webpack');
+const {file} = require('@webpack-blocks/assets');
 const {stylus} = require('webpack-blocks-more');
 
 module.exports = createConfig([
-  match(['*.styl', '*.stylus'], [
+  match('*.styl', [
+    file({
+      name: 'bundle.css',
+    }),
     stylus({
-      fileOptions: {
-        name: 'bundle.css',
-      },
       stylusOptions: {
-        preferPathResolver: 'webpack',
+        compress: true,
       },
     }),
   ]),
@@ -117,15 +159,23 @@ module.exports = createConfig([
 
 ### `stylusDev([options])`
 
-Similar to `stylus` block, but uses [`stylus-loader`](https://github.com/shama/stylus-loader),
-[`css-loader`](https://github.com/webpack-contrib/css-loader) and
-[`style-loader`](https://github.com/webpack-contrib/style-loader).
-
 __Arguments__
 
-1. `[options]` _(Object)_:
-  - `[styleOptions]` _(Object)_: `style-loader` options.
-  - `[cssOptions]` _(Object)_: `css-loader` options.
-  - `[stylusOptions]` _(Object)_: `stylus-loader` options.
+1. `[options]` _(Object)_: `stylus-loader` options.
+
+__Example__
+
+```js
+const {createConfig, match} = require('@webpack-blocks/webpack');
+const {css} = require('@webpack-blocks/assets');
+const {stylusDev} = require('webpack-blocks-more');
+
+module.exports = createConfig([
+  match('*.styl', [
+    css(),
+    stylus(),
+  ]),
+]);
+```
 
 ---

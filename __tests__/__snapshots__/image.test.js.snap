@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should work with file block 1`] = `
+Object {
+  "module": Object {
+    "rules": Array [
+      Object {
+        "test": Array [
+          /\\^\\.\\*\\\\\\.jpg\\$/,
+          /\\^\\.\\*\\\\\\.png\\$/,
+        ],
+        "use": Array [
+          Object {
+            "loader": "file-loader",
+            "options": Object {},
+          },
+          Object {
+            "loader": "image-webpack-loader",
+            "options": Object {
+              "mozjpeg": Object {
+                "quality": 100,
+              },
+              "optipng": Object {
+                "optimizationLevel": 5,
+              },
+              "pngquant": Object {
+                "quality": "100",
+              },
+              "svgo": Object {
+                "plugins": Array [
+                  Object {
+                    "removeEmptyAttrs": true,
+                  },
+                  Object {
+                    "cleanupAttrs": true,
+                  },
+                  Object {
+                    "removeComments": true,
+                  },
+                ],
+              },
+            },
+          },
+        ],
+      },
+    ],
+  },
+  "plugins": Array [],
+  "resolve": Object {
+    "extensions": Array [
+      ".js",
+      ".json",
+    ],
+  },
+  "stats": Object {
+    "children": false,
+    "chunks": false,
+    "modules": false,
+    "reasons": false,
+  },
+}
+`;
+
+exports[`should work with match() 1`] = `
+Object {
+  "module": Object {
+    "rules": Array [
+      Object {
+        "test": Array [
+          /\\^\\.\\*\\\\\\.jpg\\$/,
+          /\\^\\.\\*\\\\\\.png\\$/,
+        ],
+        "use": Array [
+          Object {
+            "loader": "image-webpack-loader",
+            "options": Object {
+              "mozjpeg": Object {
+                "quality": 100,
+              },
+              "optipng": Object {
+                "optimizationLevel": 5,
+              },
+              "pngquant": Object {
+                "quality": "100",
+              },
+              "svgo": Object {
+                "plugins": Array [
+                  Object {
+                    "removeEmptyAttrs": true,
+                  },
+                  Object {
+                    "cleanupAttrs": true,
+                  },
+                  Object {
+                    "removeComments": true,
+                  },
+                ],
+              },
+            },
+          },
+        ],
+      },
+    ],
+  },
+  "plugins": Array [],
+  "resolve": Object {
+    "extensions": Array [
+      ".js",
+      ".json",
+    ],
+  },
+  "stats": Object {
+    "children": false,
+    "chunks": false,
+    "modules": false,
+    "reasons": false,
+  },
+}
+`;
