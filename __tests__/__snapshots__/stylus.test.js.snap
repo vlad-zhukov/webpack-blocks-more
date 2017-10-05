@@ -8,7 +8,42 @@ Object {
         "test": /\\^\\.\\*\\\\\\.styl\\$/,
         "use": Array [
           Object {
-            "loader": "extract-loader",
+            "loader": "stylus-loader",
+            "options": Object {
+              "compress": false,
+              "disable-cache": true,
+              "preferPathResolver": "webpack",
+            },
+          },
+        ],
+      },
+    ],
+  },
+  "plugins": Array [],
+  "resolve": Object {
+    "extensions": Array [
+      ".js",
+      ".json",
+    ],
+  },
+  "stats": Object {
+    "children": false,
+    "chunks": false,
+    "modules": false,
+    "reasons": false,
+  },
+}
+`;
+
+exports[`should work with css block 1`] = `
+Object {
+  "module": Object {
+    "rules": Array [
+      Object {
+        "test": /\\^\\.\\*\\\\\\.styl\\$/,
+        "use": Array [
+          Object {
+            "loader": "style-loader",
             "options": Object {},
           },
           Object {
@@ -43,7 +78,7 @@ Object {
 }
 `;
 
-exports[`should work with file block 1`] = `
+exports[`should work with file and extract blocks 1`] = `
 Object {
   "module": Object {
     "rules": Array [
@@ -52,7 +87,9 @@ Object {
         "use": Array [
           Object {
             "loader": "file-loader",
-            "options": Object {},
+            "options": Object {
+              "name": "[hash:20].css",
+            },
           },
           Object {
             "loader": "extract-loader",
@@ -98,17 +135,9 @@ Object {
         "test": /\\^\\.\\*\\\\\\.styl\\$/,
         "use": Array [
           Object {
-            "loader": "extract-loader",
-            "options": Object {},
-          },
-          Object {
-            "loader": "css-loader",
-            "options": Object {},
-          },
-          Object {
             "loader": "stylus-loader",
             "options": Object {
-              "compress": true,
+              "compress": false,
               "disable-cache": true,
               "preferPathResolver": "webpack",
             },

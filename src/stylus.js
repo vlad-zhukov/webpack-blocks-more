@@ -1,28 +1,18 @@
 /*
  * Stylus loader.
  */
-export default function stylus(options = {}) {
-    const {extractOptions = {}, cssOptions = {}, stylusOptions = {}} = options;
-
+export default function stylusDev(options = {}) {
     return (context, {addLoader}) =>
         addLoader({
             ...context.match,
             use: [
                 {
-                    loader: 'extract-loader',
-                    options: extractOptions,
-                },
-                {
-                    loader: 'css-loader',
-                    options: cssOptions,
-                },
-                {
                     loader: 'stylus-loader',
                     options: {
-                        compress: true,
+                        compress: false,
                         'disable-cache': true,
                         preferPathResolver: 'webpack',
-                        ...stylusOptions,
+                        ...options,
                     },
                 },
             ],

@@ -12,7 +12,6 @@ Designed to be used with `webpack@3+` and `webpack-blocks@1+`.
   - [`parser([options])`](#parseroptions)
   - [`image([options])`](#imageoptions)
   - [`stylus([options])`](#stylusoptions)
-  - [`stylusDev([options])`](#stylusdevoptions)
   - [`extract([options])`](#extractoptions)
 
 ## API
@@ -97,56 +96,33 @@ module.exports = createConfig([
 
 ### `stylus([options])`
 
-Built on top of [`stylus-loader`](https://github.com/shama/stylus-loader),
-[`css-loader`](https://github.com/webpack-contrib/css-loader)
-and [`extract-loader`](https://github.com/peerigon/extract-loader).
-
 __Arguments__
 
-1. `[options]` _(Object)_:
-  - `[extractOptions]` _(Object)_: `extract-loader` options.
-  - `[cssOptions]` _(Object)_: `css-loader` options.
-  - `[stylusOptions]` _(Object)_: `stylus-loader` options.
+1. `[options]` _(Object)_: [`stylus-loader`](https://github.com/shama/stylus-loader) options.
 
 __Example__
 
 ```js
 const {createConfig, match} = require('@webpack-blocks/webpack');
-const {file} = require('@webpack-blocks/assets');
-const {stylus} = require('webpack-blocks-more');
+const {file, css} = require('@webpack-blocks/assets');
+const {extract, stylus} = require('webpack-blocks-more');
 
 module.exports = createConfig([
-  match('*.styl', [
-    file({
-      name: 'bundle.css',
-    }),
-    stylus({
-      stylusOptions: {
-        compress: true,
-      },
-    }),
-  ]),
-]);
-```
-
----
-
-### `stylusDev([options])`
-
-__Arguments__
-
-1. `[options]` _(Object)_: `stylus-loader` options.
-
-__Example__
-
-```js
-const {createConfig, match} = require('@webpack-blocks/webpack');
-const {css} = require('@webpack-blocks/assets');
-const {stylusDev} = require('webpack-blocks-more');
-
-module.exports = createConfig([
+  // for development:
   match('*.styl', [
     css(),
+    stylus(),
+  ]),
+
+  // for production:
+  match('*.styl', [
+    file({
+      name: '[hash:20].css',
+    }),
+    extract(),
+    css({
+      styleLoader: false,
+    }),
     stylus(),
   ]),
 ]);

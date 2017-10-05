@@ -50,17 +50,9 @@ Object {
         "test": /\\^\\.\\*\\\\\\.styl\\$/,
         "use": Array [
           Object {
-            "loader": "extract-loader",
-            "options": Object {},
-          },
-          Object {
-            "loader": "css-loader",
-            "options": Object {},
-          },
-          Object {
             "loader": "stylus-loader",
             "options": Object {
-              "compress": true,
+              "compress": false,
               "disable-cache": true,
               "preferPathResolver": "webpack",
             },
