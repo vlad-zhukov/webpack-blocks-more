@@ -42,7 +42,10 @@ Object {
       Object {
         "test": /\\^\\.\\*\\\\\\.styl\\$/,
         "use": Array [
-          "style-loader",
+          Object {
+            "loader": "style-loader",
+            "options": Object {},
+          },
           Object {
             "loader": "css-loader",
             "options": Object {},
