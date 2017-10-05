@@ -47,11 +47,25 @@ Object {
         },
       },
       Object {
-        "test": /\\^\\.\\*\\\\\\.js\\$/,
-        "use": Object {
-          "loader": "babel-loader",
-          "options": Object {},
-        },
+        "test": /\\^\\.\\*\\\\\\.styl\\$/,
+        "use": Array [
+          Object {
+            "loader": "extract-loader",
+            "options": Object {},
+          },
+          Object {
+            "loader": "css-loader",
+            "options": Object {},
+          },
+          Object {
+            "loader": "stylus-loader",
+            "options": Object {
+              "compress": true,
+              "disable-cache": true,
+              "preferPathResolver": "webpack",
+            },
+          },
+        ],
       },
     ],
   },

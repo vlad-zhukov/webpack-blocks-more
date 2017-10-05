@@ -1,6 +1,6 @@
 import {createConfig, match} from '@webpack-blocks/webpack';
 import parser from '../src/parser';
-import babel from '../src/babel';
+import stylus from '../src/stylus';
 
 it('should add a parser rule', () => {
     const config = createConfig([
@@ -27,7 +27,7 @@ it('should work with other rules', () => {
             requireInclude: false,
             requireEnsure: false,
         }),
-        match('*.js', [babel()]),
+        match('*.styl', [stylus()]),
     ]);
 
     expect(config).toMatchSnapshot();

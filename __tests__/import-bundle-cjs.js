@@ -6,7 +6,6 @@ test('import-bundle-cjs', () => {
     expect(typeof blocks.parser).toBe('function');
 
     expect(typeof blocks.image).toBe('function');
-    expect(typeof blocks.babel).toBe('function');
     expect(typeof blocks.stylus).toBe('function');
     expect(typeof blocks.stylusDev).toBe('function');
 });
