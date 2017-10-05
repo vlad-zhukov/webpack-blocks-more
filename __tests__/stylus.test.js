@@ -39,8 +39,8 @@ it('should work with file and extract blocks', () => {
             }),
             stylus({
                 compress: true,
-            })
-        ])
+            }),
+        ]),
     ]);
 
     expect(config).toMatchSnapshot();
