@@ -13,6 +13,7 @@ Designed to be used with `webpack@3+` and `webpack-blocks@1+`.
   - [`image([options])`](#imageoptions)
   - [`stylus([options])`](#stylusoptions)
   - [`stylusDev([options])`](#stylusdevoptions)
+  - [`extract([options])`](#extractoptions)
 
 ## API
 
@@ -147,6 +148,34 @@ module.exports = createConfig([
   match('*.styl', [
     css(),
     stylus(),
+  ]),
+]);
+```
+
+---
+
+### `extract([options])`
+
+__Arguments__
+
+1. `[options]` _(Object)_: [`extract-loader`](https://github.com/peerigon/extract-loader) options.
+
+__Example__
+
+```js
+const {createConfig, match} = require('@webpack-blocks/webpack');
+const {file, css} = require('@webpack-blocks/assets');
+const {extract} = require('webpack-blocks-more');
+
+module.exports = createConfig([
+  match('*.css', [
+    file({
+      name: '[hash:20].css',
+    }),
+    extract(),
+    css({
+      styleLoader: false,
+    }),
   ]),
 ]);
 ```
