@@ -7,7 +7,6 @@ Designed to be used with `webpack@3+` and `webpack-blocks@1+`.
 ## Table of Content
 
 - [API](#api)
-  - [`setEnv([options])`](#setenvoptions)
   - [`watch([options])`](#watchoptions)
   - [`parser([options])`](#parseroptions)
   - [`image([options])`](#imageoptions)
@@ -15,25 +14,6 @@ Designed to be used with `webpack@3+` and `webpack-blocks@1+`.
   - [`extract([options])`](#extractoptions)
 
 ## API
-
-### `setEnv([options])`
-
-Sets environmental variables to `process.env` and [`EnvironmentPlugin`](https://webpack.js.org/plugins/environment-plugin/).
-
-__Arguments__
-
-1. `[options]` _(Array|Object)_: Any enumerable properties.
-
-__Example__
-
-```js
-setEnv({
-  NODE_ENV: 'development',
-  HOT: true,
-})
-```
-
----
 
 ### `watch([options])`
 Watch mode.

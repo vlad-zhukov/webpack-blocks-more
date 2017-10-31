@@ -1,7 +1,6 @@
 import * as blocks from '../dist/webpack-blocks-more.cjs';
 
 test('import-bundle-esm', () => {
-    expect(typeof blocks.setEnv).toBe('function');
     expect(typeof blocks.watch).toBe('function');
     expect(typeof blocks.parser).toBe('function');
 
