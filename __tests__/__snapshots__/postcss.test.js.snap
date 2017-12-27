@@ -1,0 +1,151 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should take options 1`] = `
+Object {
+  "module": Object {
+    "rules": Array [
+      Object {
+        "test": /\\^\\.\\*\\\\\\.css\\$/,
+        "use": Array [
+          Object {
+            "loader": "postcss-loader",
+            "options": Object {
+              "plugins": Array [],
+            },
+          },
+        ],
+      },
+    ],
+  },
+  "plugins": Array [],
+  "resolve": Object {
+    "extensions": Array [
+      ".js",
+      ".json",
+    ],
+  },
+  "stats": Object {
+    "children": false,
+    "chunks": false,
+    "modules": false,
+    "reasons": false,
+  },
+}
+`;
+
+exports[`should work with css block 1`] = `
+Object {
+  "module": Object {
+    "rules": Array [
+      Object {
+        "test": /\\^\\.\\*\\\\\\.css\\$/,
+        "use": Array [
+          Object {
+            "loader": "style-loader",
+            "options": Object {},
+          },
+          Object {
+            "loader": "css-loader",
+            "options": Object {},
+          },
+          Object {
+            "loader": "postcss-loader",
+            "options": Object {},
+          },
+        ],
+      },
+    ],
+  },
+  "plugins": Array [],
+  "resolve": Object {
+    "extensions": Array [
+      ".js",
+      ".json",
+    ],
+  },
+  "stats": Object {
+    "children": false,
+    "chunks": false,
+    "modules": false,
+    "reasons": false,
+  },
+}
+`;
+
+exports[`should work with file and extract blocks 1`] = `
+Object {
+  "module": Object {
+    "rules": Array [
+      Object {
+        "test": /\\^\\.\\*\\\\\\.css\\$/,
+        "use": Array [
+          Object {
+            "loader": "file-loader",
+            "options": Object {
+              "name": "[hash:20].css",
+            },
+          },
+          Object {
+            "loader": "extract-loader",
+            "options": Object {},
+          },
+          Object {
+            "loader": "css-loader",
+            "options": Object {},
+          },
+          Object {
+            "loader": "postcss-loader",
+            "options": Object {
+              "plugins": Array [],
+            },
+          },
+        ],
+      },
+    ],
+  },
+  "plugins": Array [],
+  "resolve": Object {
+    "extensions": Array [
+      ".js",
+      ".json",
+    ],
+  },
+  "stats": Object {
+    "children": false,
+    "chunks": false,
+    "modules": false,
+    "reasons": false,
+  },
+}
+`;
+
+exports[`should work with match() 1`] = `
+Object {
+  "module": Object {
+    "rules": Array [
+      Object {
+        "test": /\\^\\.\\*\\\\\\.css\\$/,
+        "use": Array [
+          Object {
+            "loader": "postcss-loader",
+            "options": Object {},
+          },
+        ],
+      },
+    ],
+  },
+  "plugins": Array [],
+  "resolve": Object {
+    "extensions": Array [
+      ".js",
+      ".json",
+    ],
+  },
+  "stats": Object {
+    "children": false,
+    "chunks": false,
+    "modules": false,
+    "reasons": false,
+  },
+}
+`;

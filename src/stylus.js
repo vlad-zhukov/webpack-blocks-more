@@ -1,7 +1,7 @@
 /*
  * Stylus loader.
  */
-export default function stylusDev(options = {}) {
+export default function stylus(options = {}) {
     return (context, {addLoader}) =>
         addLoader({
             ...context.match,
