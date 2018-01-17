@@ -10,6 +10,7 @@ Designed to be used with `webpack@3+` and `webpack-blocks@1+`.
   - [`watch([options])`](#watchoptions)
   - [`parser([options])`](#parseroptions)
   - [`image([options])`](#imageoptions)
+  - [`postcss([options])`](#postcss)
   - [`stylus([options])`](#stylusoptions)
   - [`extract([options])`](#extractoptions)
 
@@ -68,6 +69,50 @@ module.exports = createConfig([
   match(['*.jpg', '*.png'], [
     file(),
     image(),
+  ]),
+]);
+```
+
+---
+
+### `postcss([options])`
+
+__Arguments__
+
+1. `[options]` _(Object)_: [`postcss-loader`](https://github.com/postcss/postcss-loader) options.
+
+__Example__
+
+```js
+const {createConfig, match} = require('@webpack-blocks/webpack');
+const {file, css} = require('@webpack-blocks/assets');
+const {extract, postcss} = require('webpack-blocks-more');
+
+module.exports = createConfig([
+  // for development:
+  match('*.styl', [
+    css(),
+    postcss({
+        plugins: {
+            autoprefixer: {}
+        }
+    }),
+  ]),
+
+  // for production:
+  match('*.styl', [
+    file({
+      name: '[hash:20].css',
+    }),
+    extract(),
+    css({
+      styleLoader: false,
+    }),
+    postcss({
+        plugins: {
+            autoprefixer: {}
+        }
+    }),
   ]),
 ]);
 ```
