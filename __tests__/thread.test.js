@@ -12,7 +12,7 @@ it('should take options', () => {
     const config = createConfig([
         match('*.js', [
             thread({
-                name: "my-pool"
+                name: 'my-pool',
             }),
         ]),
     ]);
