@@ -42,17 +42,28 @@
         "prettier-eslint-cli": "^4.7.0",
         "rimraf": "^2.6.2",
         "rollup": "^0.55.1",
-        "rollup-plugin-babel": "^4.0.0-beta.0",
+        "rollup-plugin-babel": "^4.0.0-beta.1",
         "webpack": "^3.10.0"
     },
     "peerDependencies": {
         "@webpack-blocks/webpack": "^1.0.0-beta",
         "webpack": "^3.0.0"
     },
-    "keywords": ["webpack-blocks", "webpack", "webpack-dev-server", "react-hot-loader", "babel"],
-    "files": ["src", "dist"],
+    "keywords": [
+        "webpack-blocks",
+        "webpack",
+        "webpack-dev-server",
+        "react-hot-loader",
+        "babel"
+    ],
+    "files": [
+        "src",
+        "dist"
+    ],
     "jest": {
-        "roots": ["<rootDir>/__tests__/"],
+        "roots": [
+            "<rootDir>/__tests__/"
+        ],
         "transform": {
             ".js$": "babel-jest"
         }
