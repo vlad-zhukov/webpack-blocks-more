@@ -5,3 +5,4 @@ export {default as image} from './image';
 export {default as postcss} from './postcss';
 export {default as stylus} from './stylus';
 export {default as extract} from './extract';
+export {default as thread} from './thread';

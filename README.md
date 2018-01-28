@@ -13,6 +13,7 @@ Designed to be used with `webpack@3+` and `webpack-blocks@1+`.
   - [`postcss([options])`](#postcss)
   - [`stylus([options])`](#stylusoptions)
   - [`extract([options])`](#extractoptions)
+  - [`thread([options])`](#threadoptions)
 
 ## API
 
@@ -176,6 +177,35 @@ module.exports = createConfig([
     extract(),
     css({
       styleLoader: false,
+    }),
+  ]),
+]);
+```
+
+---
+
+### `thread([options])`
+
+__Arguments__
+
+1. `[options]` _(Object)_:
+   - all [`thread-loader`](https://github.com/webpack-contrib/thread-loader) options.
+   - `warmupModules` _(Array)_: an array of modules to prewarm.
+
+__Example__
+
+```js
+const {createConfig, match} = require('@webpack-blocks/webpack');
+const babel = require('@webpack-blocks/babel');
+const {thread} = require('webpack-blocks-more');
+
+module.exports = createConfig([
+  match('*.js', [
+    thread({
+      warmupModules: ['babel-loader', '@babel/core', '@babel/preset-env'],
+    }),
+    babel({
+      cacheDirectory: true,
     }),
   ]),
 ]);
