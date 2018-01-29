@@ -4,6 +4,7 @@ test('import-bundle-cjs', () => {
     expect(typeof blocks.watch).toBe('function');
     expect(typeof blocks.parser).toBe('function');
 
+    expect(typeof blocks.babel).toBe('function');
     expect(typeof blocks.image).toBe('function');
     expect(typeof blocks.postcss).toBe('function');
     expect(typeof blocks.stylus).toBe('function');

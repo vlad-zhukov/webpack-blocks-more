@@ -10,6 +10,7 @@ Designed to be used with `webpack@3+` and `webpack-blocks@1+`.
   - [`watch([options])`](#watchoptions)
   - [`parser([options])`](#parseroptions)
   - [`image([options])`](#imageoptions)
+  - [`babel([options])`](#babeloptions)
   - [`postcss([options])`](#postcss)
   - [`stylus([options])`](#stylusoptions)
   - [`extract([options])`](#extractoptions)
@@ -50,6 +51,29 @@ module.exports = createConfig([
   }),
 ]);
 ```
+
+---
+
+### `babel([options])`
+
+__Arguments__
+
+1. `[options]` _(Object)_: [`babel-loader`](https://github.com/babel/babel-loader) options.
+
+__Example__
+
+```js
+const {createConfig, match} = require('@webpack-blocks/webpack');
+const {thread, babel} = require('webpack-blocks-more');
+
+module.exports = createConfig([
+  match(['*.js', '*.mjs'], {exclude: 'node_modules'} [
+    thread(),
+    babel(),
+  ]),
+]);
+```
+
 
 ---
 
